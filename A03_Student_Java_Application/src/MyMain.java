@@ -215,7 +215,7 @@ public class MyMain {
                     String name = sc.next();
 
                     // III. Ask user to enter the size of the drink
-                    System.out.print("\nSize in ml. \nFor example 500 will be 500ml.\n\n");
+                    System.out.print("\nSize in ml (100 = 100ml, 500 = 500ml etc.): \n");
                     int size = getOption(sc);
 
                     // IV. Add drink
@@ -356,28 +356,45 @@ public class MyMain {
                     sc.next();
                 }
                 case 9 -> {
+                    // I. Show the menu
+                    System.out.println("---------------\n9. Display All Orders\n---------------");
                     System.out.println("Display all orders: ");
+
+                    // II. Display all orders
                     coffeeTruck.displayOrders();
 
-                    // VI. Ask to enter anything to show the menu again
+                    // III. Ask to enter anything to show the menu again
                     System.out.println("Enter anything to continue.");
                     sc.next();
                 }
                 case 10 -> {
+
+                    // I. Load a customer list from the database
+                        // i. Create a customer list and load it from the database
                     List<Customer> customerList = sql.loadCustomers();
+
+                        // ii. Add a customer list to our program
                     coffeeTruck.addCustomers(customerList);
 
+                    // II. Load a product list from the database
+                        // i. Create a product list and load it from the database
                     List<Product> productList = sql.loadProducts();
+                        // ii. Add a product list to our program
                     coffeeTruck.addProducts(productList);
 
+                    // III. Load a activeCart from the database
                     coffeeTruck.loadActiveCart(sql, customerList);
-                    System.out.println("Products loaded from the database.");
 
-                    // VI. Ask to enter anything to show the menu again
+                    // IV. Output the result
+                    System.out.println("Database was successfully loaded.");
+
+                    // V. Ask to enter anything to show the menu again
                     System.out.println("Enter anything to continue.");
                     sc.next();
                 }
                 case 11 -> {
+                    // I. Show the menu
+                    System.out.println("---------------\n8. Make New Order\n---------------");
                     coffeeTruck.saveCustomersToDB(sql);
                     coffeeTruck.saveProductsToDB(sql);
                     coffeeTruck.saveActiveCartToDB(sql);

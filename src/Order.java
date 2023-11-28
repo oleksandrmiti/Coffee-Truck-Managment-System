@@ -25,7 +25,6 @@ public class Order {
 //	Constructor
 //---------------------------------------
     public Order(int _orderId, int _customerId, int _productId){
-
         // 1.0. Initialise the fields
         this.orderId = _orderId;
         this.customerId = _customerId;

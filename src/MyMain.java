@@ -102,7 +102,6 @@ public class MyMain {
      * @return @param isGlutenFree
      */
     public static boolean getBooleanOption(Scanner sc){
-
         // 1.0. Create local variables
         boolean correctOption = false;
         boolean isGlutenFree = false;
@@ -181,7 +180,6 @@ public class MyMain {
             switch (option) {
                 case 0 -> exit = true;
                 case 1 ->{
-
                     // I. Show the menu
                     System.out.println("===================\n1. Add Customer\n===================");
                     System.out.println("Enter customer details:\n");
@@ -206,7 +204,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 2 -> {
-
                     // I. Show the menu
                     System.out.println("===============\n2. Add Drink\n===============");
                     System.out.println("Enter drink details:\n");
@@ -230,7 +227,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 3 -> {
-
                     // I. Show the menu
                     System.out.println("===============\n3. Add Dessert\n===============");
                     System.out.println("Enter dessert details:\n");
@@ -252,7 +248,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 4 -> {
-
                     // I. Show the menu
                     System.out.println("=====================\n4. Remove Customer\n=====================");
 
@@ -275,7 +270,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 5 -> {
-
                     // I. Show the menu
                     System.out.println("=====================\n5. Remove Product\n=====================");
 
@@ -298,7 +292,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 6 -> {
-
                     // I. Show the menu
                     System.out.println("===========================\n6. Display All Customers\n===========================");
                     System.out.println("\nList of all customers: ");
@@ -311,7 +304,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 7 -> {
-
                     // I. Show the menu
                     System.out.println("=================================\n7. Display Customer Information\n=================================");
 
@@ -331,7 +323,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 8 -> {
-
                     // I. Show the menu
                     System.out.println("===================\n8. Make New Order\n===================");
 
@@ -357,7 +348,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 9 -> {
-
                     // I. Show the menu
                     System.out.println("=======================\n9. Display All Orders\n=======================");
                     System.out.println("Display all orders: ");
@@ -370,7 +360,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 10 -> {
-
                     // I. Load a customer list from the database
                         // i. Create a customer list and load it from the database
                     List<Customer> customerList = sql.loadCustomers();
@@ -398,7 +387,6 @@ public class MyMain {
                     sc.next();
                 }
                 case 11 -> {
-
                     // I. Save customers to the DB
                     coffeeTruck.saveCustomersToDB(sql);
 

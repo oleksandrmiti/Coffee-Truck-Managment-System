@@ -34,6 +34,7 @@ public class MySQLCon {
      * @param password -: The password of the user
      */
     public MySQLCon(String url, String user, String password) {
+        // 1.0. We initialise fields
         this.DB_URL = url;
         this.USER = user;
         this.PASSWORD = password;
@@ -70,7 +71,6 @@ public class MySQLCon {
      * @return -: userList with the customers from the database
      */
     public List<Customer> loadCustomers() {
-
         // 1.0. Create a new user list
         List<Customer> userList = new ArrayList<>();
 
@@ -84,7 +84,6 @@ public class MySQLCon {
 
             // 2.3. For every field of the database
             while (rs.next()) {
-
                 // 2.3.1. Get the ID of the customer
                 int id = rs.getInt("customerId");
 
@@ -116,13 +115,11 @@ public class MySQLCon {
      * @param customerList :- a list with existing customers
      */
     public void saveCustomers(List<Customer> customerList) {
-
         // 1.0. Check connection and create a new statement
         try (
                 Connection con = getConnection();
                 Statement stmt = con.createStatement()
         ) {
-
             // 1.1. Clear all tables before saving a new database
             stmt.executeUpdate("DELETE FROM Customer");
             stmt.executeUpdate("DELETE FROM Drinks");
@@ -143,7 +140,6 @@ public class MySQLCon {
 
             // 2.1. For each customer in the list
             for (Customer customer : customerList) {
-
                 // 2.1.1. For the first parameter we are getting an ID of the customer
                 pstmt.setInt(1, customer.getID());
 
@@ -175,7 +171,6 @@ public class MySQLCon {
      * @return :- new product list with the products from the database
      */
     public List<Product> loadProducts() {
-
         // 1.0. Create a new product list
         List<Product> productList = new ArrayList<>();
 
@@ -185,10 +180,8 @@ public class MySQLCon {
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM Drinks")
         ) {
-
             // 2.1. For each raw in the drinks table
             while (rs.next()) {
-
                 // 2.2.1. Get the ID of the drink
                 int productId = rs.getInt("productId");
 
@@ -214,10 +207,8 @@ public class MySQLCon {
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM Desserts")
         ) {
-
             // 3.1.1 For each raw in the desserts table
             while (rs.next()) {
-
                 // 3.2.1. Get the ID of the dessert
                 int productId = rs.getInt("productId");
 
@@ -236,7 +227,6 @@ public class MySQLCon {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         // 4.0. Return a new product list
         return productList;
     }
@@ -260,7 +250,6 @@ public class MySQLCon {
         ) {
             // 1.2.1. For each product in the product list
             for (Product product : productList) {
-
                 // 1.3.1. Check if the product is the instance of Drinks
                 if (product instanceof Drinks) {
 
@@ -300,7 +289,6 @@ public class MySQLCon {
             for (Product product : productList) {
                 // 1.3.1. Check if the product is the instance of Desserts
                 if (product instanceof Desserts) {
-
                     // 1.3.2. Get the dessert
                     Desserts dessert = (Desserts) product;
 
@@ -337,7 +325,6 @@ public class MySQLCon {
      * @return -: a new active cart loaded from the database
      */
     public ArrayList<Order> loadActiveCart(int customerId) {
-
         // 1.0. Create a new active cart
         ArrayList<Order> activeCart = new ArrayList<>();
 
@@ -353,7 +340,6 @@ public class MySQLCon {
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-
                 // 3.1. Get an ID of the order
                 int orderId = resultSet.getInt("orderId");
 
@@ -373,7 +359,6 @@ public class MySQLCon {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         // 5.0. Return a new activeCart for this customer
         return activeCart;
     }

@@ -30,7 +30,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
 //	Constructor
 //---------------------------------------
     public CoffeeTruckImpl() {
-
         // 1.0 We assume that no customers and products created
         customerList = new ArrayList<Customer>();
         this.productList = new ArrayList<Product>();
@@ -77,10 +76,8 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      * @return a number of customers were added
      */
     public int addCustomer(List<Customer> customerList) {
-
         // 1.0. Check if customerList is not empty
         if (customerList != null && !customerList.isEmpty()) {
-
             // 1.1. Create a local variable
             int customersAdded = 0;
 
@@ -172,7 +169,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      */
     @Override
     public void addProducts(List<Product> productList) {
-
         // 1.0. For each product in the product list
         for (Product product : productList) {
 
@@ -199,7 +195,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      */
     @Override
     public boolean removeCustomer(int customerId) {
-
         // 1.0. Create an iterator
         Iterator<Customer> iterator = customerList.iterator();
         while (iterator.hasNext()) {
@@ -229,7 +224,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      */
     @Override
     public boolean removeProduct(int productId) {
-
         // 1.0. Create an iterator
         Iterator<Product> iterator = productList.iterator();
         while (iterator.hasNext()) {
@@ -276,18 +270,15 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      */
     @Override
     public int displayProducts() {
-
         // 1.0. If the product list in not empty
         if (productList.isEmpty()) {
             System.out.println("Sorry, but we are empty now.");
         } else{
-
             // 2.0. Output available product
             System.out.println("Available Products:");
 
             // 3.0. For every product in the product list
             for (Product product : productList) {
-
                 // 3.1. Output information about product
                 System.out.println("ID: " + product.getID() + ", Name: " + product.getName());
 
@@ -340,7 +331,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      */
     @Override
     public int makeOrder(int customerId, int productId) {
-
         // 1.0. Find the customer with provided ID
         Customer customer = findCustomer(customerId);
 
@@ -369,7 +359,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      */
     @Override
     public void displayOrders() {
-
         // 1.0. For each customer in the customer list
         for (Customer customer : customerList) {
             // 1.1. Output the order information for this customer
@@ -472,7 +461,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      * @return a product
      */
     private Product findProduct(int productId) {
-
         // 1.0. For each product in the product list
         for (Product product : productList) {
 
@@ -494,7 +482,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
      * @return true if product in the list or false if it's not
      */
     private boolean productListContainsId(int productId) {
-
         // 1.0. For each product in the product list
         for (Product product : this.productList) {
 

@@ -19,6 +19,7 @@ import java.util.Scanner;
 /**
  *  This is a Main class for Assignment 3.
  */
+
 public class MyMain {
 
     //--------------------------------------------------
@@ -146,7 +147,7 @@ public class MyMain {
      * create an instance object of the CoffeeTruck.
      *
      * @param url -: a URL to the database
-     * @param user -: a user who can manage database
+     * @param user -: a user who can manage the database
      * @param password -: a password for this user
      */
     public static void runProgram(String url, String user, String password){
@@ -182,7 +183,7 @@ public class MyMain {
                 case 1 ->{
 
                     // I. Show the menu
-                    System.out.println("---------------\n1. Add Customer\n---------------");
+                    System.out.println("===================\n1. Add Customer\n===================");
                     System.out.println("Enter customer details:\n");
                     sc.nextLine(); // Consume newline
 
@@ -207,7 +208,7 @@ public class MyMain {
                 case 2 -> {
 
                     // I. Show the menu
-                    System.out.println("---------------\n2. Add Drink\n---------------");
+                    System.out.println("===============\n2. Add Drink\n===============");
                     System.out.println("Enter drink details:\n");
 
                     // II. Ask user to enter the name of the Drink
@@ -231,7 +232,7 @@ public class MyMain {
                 case 3 -> {
 
                     // I. Show the menu
-                    System.out.println("---------------\n3. Add Dessert\n---------------");
+                    System.out.println("===============\n3. Add Dessert\n===============");
                     System.out.println("Enter dessert details:\n");
 
                     // II. Ask user to enter a name of the dessert
@@ -253,7 +254,7 @@ public class MyMain {
                 case 4 -> {
 
                     // I. Show the menu
-                    System.out.println("---------------\n4. Remove Customer\n---------------");
+                    System.out.println("=====================\n4. Remove Customer\n=====================");
 
                     // II. Ask user to enter a customer ID
                     System.out.println("Enter customer ID to remove:");
@@ -276,7 +277,7 @@ public class MyMain {
                 case 5 -> {
 
                     // I. Show the menu
-                    System.out.println("---------------\n5. Remove Product\n---------------");
+                    System.out.println("=====================\n5. Remove Product\n=====================");
 
                     // II. Ask user to enter a product ID
                     System.out.println("Enter product ID to remove:");
@@ -299,8 +300,8 @@ public class MyMain {
                 case 6 -> {
 
                     // I. Show the menu
-                    System.out.println("---------------\n6. Display All Customers\n---------------");
-                    System.out.println("List of all customers: ");
+                    System.out.println("===========================\n6. Display All Customers\n===========================");
+                    System.out.println("\nList of all customers: ");
 
                     // II. Output all customers
                     coffeeTruck.displayCustomers();
@@ -312,7 +313,7 @@ public class MyMain {
                 case 7 -> {
 
                     // I. Show the menu
-                    System.out.println("---------------\n7. Display Customer Information\n---------------");
+                    System.out.println("=================================\n7. Display Customer Information\n=================================");
 
                     // II. Ask user to enter an ID of the customer
                     System.out.println("Enter customer ID to show details:");
@@ -332,7 +333,7 @@ public class MyMain {
                 case 8 -> {
 
                     // I. Show the menu
-                    System.out.println("---------------\n8. Make New Order\n---------------");
+                    System.out.println("===================\n8. Make New Order\n===================");
 
                     // II. Show available products to order
                     int res = coffeeTruck.displayProducts();
@@ -356,8 +357,9 @@ public class MyMain {
                     sc.next();
                 }
                 case 9 -> {
+
                     // I. Show the menu
-                    System.out.println("---------------\n9. Display All Orders\n---------------");
+                    System.out.println("=======================\n9. Display All Orders\n=======================");
                     System.out.println("Display all orders: ");
 
                     // II. Display all orders
@@ -374,7 +376,10 @@ public class MyMain {
                     List<Customer> customerList = sql.loadCustomers();
 
                         // ii. Add a customer list to our program
-                    coffeeTruck.addCustomers(customerList);
+                    int num = coffeeTruck.addCustomer(customerList);
+
+                        // iii. Output how many customers were added
+                    System.out.println(num + " customers were added.");
 
                     // II. Load a product list from the database
                         // i. Create a product list and load it from the database
@@ -393,14 +398,20 @@ public class MyMain {
                     sc.next();
                 }
                 case 11 -> {
-                    // I. Show the menu
-                    System.out.println("---------------\n8. Make New Order\n---------------");
+
+                    // I. Save customers to the DB
                     coffeeTruck.saveCustomersToDB(sql);
+
+                    // II. Save products to the DB
                     coffeeTruck.saveProductsToDB(sql);
+
+                    // III. Save active cart to the DB
                     coffeeTruck.saveActiveCartToDB(sql);
+
+                    // IV. Output the result
                     System.out.println("DB saved");
 
-                    // VI. Ask to enter anything to show the menu again
+                    // V. Ask to enter anything to show the menu again
                     System.out.println("Enter anything to continue.");
                     sc.next();
                 }
@@ -415,6 +426,10 @@ public class MyMain {
 //	MAIN Program
 //---------------------------------------
 
+    /**
+     *
+     * @param args -: Any argument passed when calling to the Java application.
+     */
     public static void main(String[] args) {
         // 1. Create variables to connect to the MySQL Database
             //1.1. URL to the database, please change it before you run the program

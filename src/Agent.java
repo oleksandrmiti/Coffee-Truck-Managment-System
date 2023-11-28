@@ -2,14 +2,16 @@
 //	IMPORTS
 //--------------------------------------------------
 
-
 //--------------------------------------------------
 //
 //	CLASS Agent
 //
 //--------------------------------------------------
-public class Agent {
 
+/**
+ * This is a superclass that handle an ID for Customers and Products
+ */
+public class Agent {
 
 //---------------------------------------
 //	Fields
@@ -20,6 +22,7 @@ private final int id;
 //	Constructor
 //---------------------------------------
 public Agent(int _id){
+    // 1.0. Initialise the field
     this.id = _id;
 }
 
@@ -27,16 +30,16 @@ public Agent(int _id){
 //	GET METHODS
 //---------------------------------------
 
-protected int getID(){
-    return this.id;
-}
-//---------------------------------------
-//	SET METHODS
-//---------------------------------------
+    //---------------------------------------
+    //	getID
+    //---------------------------------------
 
-
-//---------------------------------------
-//	EXTRA METHODS
-//---------------------------------------
+    /**
+     * This method returns ID
+     * @return id
+     */
+    protected int getID(){
+        return this.id;
+    }
 
 }

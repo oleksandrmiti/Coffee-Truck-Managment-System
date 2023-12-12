@@ -351,6 +351,9 @@ public class MySQLCon {
 
                 // 3.4. Add the order to the active cart
                 activeCart.add(order);
+
+                // 3.5. We set a n
+                CoffeeTruckImpl.nextOrderId++;
             }
 
             // 4.0. Close resources

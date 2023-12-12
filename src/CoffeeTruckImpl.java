@@ -24,7 +24,7 @@ public class CoffeeTruckImpl implements CoffeeTruck {
     private ArrayList<Product> productList;
     private static int nextCustomerId = 100;
     private static int nextProductId = 200;
-    private static int nextOrderId = 300;
+    protected static int nextOrderId = 300;
 
 //---------------------------------------
 //	Constructor
@@ -197,8 +197,8 @@ public class CoffeeTruckImpl implements CoffeeTruck {
     public boolean removeCustomer(int customerId) {
         // 1.0. Create an iterator
         Iterator<Customer> iterator = customerList.iterator();
-        while (iterator.hasNext()) {
 
+        while (iterator.hasNext()) {
             // 2.0. Take a customer
             Customer customer = iterator.next();
 
@@ -410,8 +410,6 @@ public class CoffeeTruckImpl implements CoffeeTruck {
         for (Customer customer : customerList) {
             ArrayList<Order> activeCart = sql.loadActiveCart(customer.getID());
             customer.setActiveCart(activeCart);
-            CoffeeTruckImpl.nextOrderId++;
-
         }
     }
 

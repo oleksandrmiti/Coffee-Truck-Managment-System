@@ -8,5 +8,5 @@ I'm using a MySQL so you might need to configure mysql connector.
 I have a sql query ready dm me if and I'll send one.
 
 
-============================
+============================<br>
 This will be changed soon...
